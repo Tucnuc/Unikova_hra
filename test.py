@@ -19,7 +19,7 @@ guard_loot = ["medkit"]
 while True:
     if "start" in location:
         print("Probouzíš se na ostrově. Ohlédneš se kolem sebe a vidíš pár mrtvol a za sebou ztrozkotanou loď.")
-        print("Po chvíli se ti do hlavy vrací zpomínky o tom jak si plul po moři, když v tu najednou přišla velká bouře a slyšel si výbuch. Po té už si pamatuješ jen na své probuzení zde na ostrově.")
+        print("Po chvíli se ti do hlavy vrací vzpomínky o tom jak si plul po moři, když v tu najednou přišla velká bouře a slyšel si výbuch. Po té už si pamatuješ jen na své probuzení zde na ostrově.")
         print("Po pár minutách co se zpamatuješ ze šoku, si uvědomíš že bude lepší začít něco dělat. Třeba aspoň prozkoumat kde si to vlastně skončil.")
         print("")
         while True:
@@ -29,12 +29,12 @@ while True:
                 location.append("shipwreck")
                 print("")
                 break
-            if okoli == "ne":
+            elif okoli == "ne":
                 location.remove("start")
                 location.append("meeting_point_A")
                 print("")
                 break
-            if okoli != "ano" and okoli != "ne":
+            else:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
 
@@ -43,24 +43,24 @@ while True:
         print("Můžeš se porozhlédnout po vraku lodi na které si připlul nebo jít prohlédnout a prohledat dvě mrtvá těla lidí opodál po tvé pravici, kteří s tebou pravděpodobně byli na lodi.")
         print("")
         while True:
-            vrak = str(input("Chceš prozkoumat své okolí než se vidáš hlouběji do ostrova? [vrak lodi, těla lidí, odejít]: "))
-            if vrak == "vrak lodi":
+            vrak = int(input("Chceš prozkoumat své okolí než se vidáš hlouběji do ostrova? [1 - vrak lodi, 2 - těla lidí, 3 - odejít]: "))
+            if vrak == 1:
                 location.remove("shipwreck")
                 location.append("shipwreck_close")
                 print("")
                 break
-            if vrak == "těla lidí":
+            elif vrak == 2:
                 location.remove("shipwreck")
                 location.append("guard_bodies")
                 print("")
                 break
-            if vrak == "odejít":
+            elif vrak == 3:
                 location.remove("shipwreck")
                 location.append("meeting_point_A")
                 print("")
                 break
-            if vrak != "vrak lodi" and vrak != "těla lidí" and vrak != "odejít":
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [vrak lodi, těla lidí, odejít].")
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - těla lidí, 3 - odejít].")
                 print("")
     if "shipwreck_close" in location:
         print("Po chvíli hledání způsobu jak se dostat na loď, si všimneš části která je víc zabořená do písku.")
@@ -106,14 +106,14 @@ while True:
                 location.append("guard_bodies_inspection")
                 print("")
                 break
-            if tela == "ne":
+            elif tela == "ne":
                 print("")
                 print("Vrátíš se zpátky.")
                 print("")
                 location.remove("guard_bodies")
                 location.append("shipwreck")
                 break
-            if tela != "ano" and tela != "ne":
+            else:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "guard_bodies_inspection" in location:
@@ -156,14 +156,14 @@ while True:
                 location.append("guard_bodies_inspection_final_tape")
                 print("")
                 break
-            if tela == "ne":
+            elif tela == "ne":
                 print("")
                 print("Vrátíš se zpátky.")
                 print("")
                 location.remove("guard_bodies_inspection_final")
                 location.append("shipwreck")
                 break
-            if tela != "ano" and tela != "ne":
+            else:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "guard_bodies_inspection_final_tape" in location:
@@ -171,7 +171,7 @@ while True:
         print("")
         print("[Hlas 1]: UTÍKEJ RYCHLEJI!")
         print("[Hlas 2]: Ale.. já už.. nemůžu...")
-        print("[Hlas 1]: Ještě chvíli, už budeme venku z lesa, víš že to nemá sluneční svit.")
+        print("[Hlas 1]: Ještě chvíli, už budeme venku z lesa, víš že to nemá rádo sluneční svit.")
         print("[Hlas 1]: Zvládli jsme to! Jo! Jsme venku.. huf")
         print("[Hlas 2]: JO! Pane bože! huf.. huf.. *slabé zvuky deště*")
         print("[Hlas 1]: KURVA! Proč musí začít pršet zrovna teď!? Potřebujeme sluneční svit.")
