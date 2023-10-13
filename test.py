@@ -195,5 +195,5 @@ while True:
 
 
     if "meeting_point_A" in location:
-        print("pičo konec")
+        print("pičo konec zmrde")
         break
