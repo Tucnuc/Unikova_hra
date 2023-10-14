@@ -110,8 +110,15 @@ while True:
                 print("")
                 print("Vrátíš se zpátky.")
                 print("")
-                location.remove("guard_bodies")
-                location.append("shipwreck")
+                while True:
+                    pokracovani = input("Stiskni Enter pro pokračování: ")
+                    if pokracovani.strip() == "":
+                        location.remove("guard_bodies")
+                        location.append("shipwreck")
+                        print("")
+                        break
+                    if pokracovani.strip() != "":
+                        print("Zkus to znovu.")
                 break
             else:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
@@ -160,8 +167,15 @@ while True:
                 print("")
                 print("Vrátíš se zpátky.")
                 print("")
-                location.remove("guard_bodies_inspection_final")
-                location.append("shipwreck")
+                while True:
+                    pokracovani = input("Stiskni Enter pro pokračování: ")
+                    if pokracovani.strip() == "":
+                        location.remove("guard_bodies_inspection_final")
+                        location.append("shipwreck")
+                        print("")
+                        break
+                    if pokracovani.strip() != "":
+                        print("Zkus to znovu.")
                 break
             else:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
