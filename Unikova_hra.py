@@ -273,28 +273,14 @@ while True:
                     if nevim == 1:
                         print("Vydáš se k vraku lodi.")
                         print("")
-                        while True:
-                            pokracovani = input("Stiskni Enter pro pokračování: ")
-                            if pokracovani.strip() == "":
-                                location.remove("air_drop")
-                                location.append("shipwreck")
-                                print("")
-                                break
-                            if pokracovani.strip() != "":
-                                print("Zkus to znovu.")
+                        location.remove("air_drop")
+                        location.append("shipwreck")
                         break
                     elif nevim == 2:
                         print("Vydáš se na pláž.")
                         print("")
-                        while True:
-                            pokracovani = input("Stiskni Enter pro pokračování: ")
-                            if pokracovani.strip() == "":
-                                location.remove("air_drop")
-                                location.append("villa_front")
-                                print("")
-                                break
-                            if pokracovani.strip() != "":
-                                print("Zkus to znovu.")
+                        location.remove("air_drop")
+                        location.append("villa_front")
                         break
                     else:
                         print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
@@ -316,28 +302,14 @@ while True:
                 if nevim == 1:
                     print("Vydáš se k vraku lodi.")
                     print("")
-                    while True:
-                        pokracovani = input("Stiskni Enter pro pokračování: ")
-                        if pokracovani.strip() == "":
-                            location.remove("air_drop_close")
-                            location.append("shipwreck")
-                            print("")
-                            break
-                        if pokracovani.strip() != "":
-                            print("Zkus to znovu.")
+                    location.remove("air_drop_close")
+                    location.append("shipwreck")
                     break
                 elif nevim == 2:
                     print("Vydáš se na pláž.")
                     print("")
-                    while True:
-                        pokracovani = input("Stiskni Enter pro pokračování: ")
-                        if pokracovani.strip() == "":
-                            location.remove("air_drop_close")
-                            location.append("villa_front")
-                            print("")
-                            break
-                        if pokracovani.strip() != "":
-                            print("Zkus to znovu.")
+                    location.remove("air_drop_close")
+                    location.append("villa_front")
                     break
                 else:
                     print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
@@ -351,28 +323,14 @@ while True:
                 if nevim == 1:
                     print("Vydáš se k vraku lodi.")
                     print("")
-                    while True:
-                        pokracovani = input("Stiskni Enter pro pokračování: ")
-                        if pokracovani.strip() == "":
-                            location.remove("air_drop_close")
-                            location.append("shipwreck")
-                            print("")
-                            break
-                        if pokracovani.strip() != "":
-                            print("Zkus to znovu.")
+                    location.remove("air_drop_close")
+                    location.append("shipwreck")
                     break
                 elif nevim == 2:
                     print("Vydáš se na pláž.")
                     print("")
-                    while True:
-                        pokracovani = input("Stiskni Enter pro pokračování: ")
-                        if pokracovani.strip() == "":
-                            location.remove("air_drop_close")
-                            location.append("villa_front")
-                            print("")
-                            break
-                        if pokracovani.strip() != "":
-                            print("Zkus to znovu.")
+                    location.remove("air_drop_close")
+                    location.append("villa_front")
                     break
                 else:
                     print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
@@ -397,28 +355,14 @@ while True:
                     if nevim == 1:
                         print("Vydáš se k záhadné bedně.")
                         print("")
-                        while True:
-                            pokracovani = input("Stiskni Enter pro pokračování: ")
-                            if pokracovani.strip() == "":
-                                location.remove("villa_front")
-                                location.append("air_drop")
-                                print("")
-                                break
-                            if pokracovani.strip() != "":
-                                print("Zkus to znovu.")
+                        location.remove("villa_front")
+                        location.append("air_drop")
                         break
                     elif nevim == 2:
                         print("Vydáš se ke generátorům.")
                         print("")
-                        while True:
-                            pokracovani = input("Stiskni Enter pro pokračování: ")
-                            if pokracovani.strip() == "":
-                                location.remove("villa_front")
-                                location.append("meeting_point_B")
-                                print("")
-                                break
-                            if pokracovani.strip() != "":
-                                print("Zkus to znovu.")
+                        location.remove("villa_front")
+                        location.append("meeting_point_B")
                         break
                     else:
                         print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
@@ -441,28 +385,14 @@ while True:
                 if nevim == 1:
                     print("Vydáš se k záhadné bedně.")
                     print("")
-                    while True:
-                        pokracovani = input("Stiskni Enter pro pokračování: ")
-                        if pokracovani.strip() == "":
-                            location.remove("villa_front_close")
-                            location.append("air_drop")
-                            print("")
-                            break
-                        if pokracovani.strip() != "":
-                            print("Zkus to znovu.")
+                    location.remove("villa_front_close")
+                    location.append("air_drop")
                     break
                 elif nevim == 2:
                     print("Vydáš se ke generátorům.")
                     print("")
-                    while True:
-                        pokracovani = input("Stiskni Enter pro pokračování: ")
-                        if pokracovani.strip() == "":
-                            location.remove("villa_front_close")
-                            location.append("meeting_point_B")
-                            print("")
-                            break
-                        if pokracovani.strip() != "":
-                            print("Zkus to znovu.")
+                    location.remove("villa_front_close")
+                    location.append("meeting_point_B")
                     break
                 else:
                     print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
@@ -716,16 +646,17 @@ while True:
                 print("")
         if "fuse" in generator_observatory:
             otaz = str(input("Chceš pojistku umístiť jinam? [ano, ne]: "))
+            print("")
             if otaz == "ano":
                 print("Přijdeš k desce a vytáhneš dříve umístěnou pojistku.")
                 print("")
                 generator_observatory.remove("fuse")
                 while True:
                     gens = int(input("Kam chceš pojistku umístit teď? [1 - SKLADY, 2 - OBSERVATOŘ]"))
+                    print("")
                     if gens == 1:
                         generator_warehouse.append("fuse")
                         print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš jak některé generátory začly dělat hluk.")
-                        print("Po-té odstoupíš od generátoru.")
                         print("")
                         while True:
                             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -740,7 +671,6 @@ while True:
                     elif gens == 2:
                         generator_observatory.append("fuse")
                         print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš jak některé generátory začly dělat hluk.")
-                        print("Po-té odstoupíš od generátoru.")
                         print("")
                         while True:
                             pokracovani = input("Stiskni Enter pro pokračování: ")
