@@ -5,7 +5,7 @@ inventory = [""] #night_vision, fishing_rod, fuse, plane_steering_wheel, plane_w
 
 
 night_rng = random.randint(0, 1)
-weapon_rng = random.randint(0, 2)
+airdrop_rng = 2
 ship_rng = random.randint(0, 1)
 
 
@@ -14,6 +14,10 @@ if ship_rng == 1:
     shipwreck_loot.append("flashlight")
 
 guard_loot = ["medkit"]
+
+airdrop_loot = []
+if airdrop_rng == random.randint(0, 2):
+    airdrop_loot.append("revolver")
 
 
 while True:
@@ -293,8 +297,81 @@ while True:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "air_drop_close" in location:
-        print("test")
-        break
+        print("Přiblížíš se k airdropu, podíváš se pod něj. Po pečlivém hledání si...")
+        if "revolver" in airdrop_loot:
+            print("Našel revolver. Schováš si ho k sobě pro další využití.")
+            airdrop_loot.remove("revolver")
+            inventory.append("revolver")
+            print("")
+            while True:
+                nevim = int(input("Kam se chceš vydat teď? [1 - vrak lodi, 2 - pláž]: "))
+                print("")
+                if nevim == 1:
+                    print("Vydáš se k vraku lodi.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("air_drop_close")
+                            location.append("shipwreck")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                elif nevim == 2:
+                    print("Vydáš se na pláž.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("air_drop_close")
+                            location.append("villa_front")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                else:
+                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
+                    print("")
+        elif "revolver" not in airdrop_loot:
+            print("Bohužel nic nenašel.")
+            print("")
+            while True:
+                nevim = int(input("Kam se chceš vydat teď? [1 - vrak lodi, 2 - pláž]: "))
+                print("")
+                if nevim == 1:
+                    print("Vydáš se k vraku lodi.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("air_drop_close")
+                            location.append("shipwreck")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                elif nevim == 2:
+                    print("Vydáš se na pláž.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("air_drop_close")
+                            location.append("villa_front")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                else:
+                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
+                    print("")
+    
+    
     if "villa_front" in location:
         print("test2")
         break
