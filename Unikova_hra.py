@@ -22,6 +22,9 @@ generator_warehouse = []
 generator_observatory = []
 generators_visit = []
 
+observatory_door = []
+observatory_loot = ["night_vision"]
+
 airdrop_loot = []
 if airdrop_rng == random.randint(0, 2):
     airdrop_loot.append("revolver")
@@ -703,9 +706,172 @@ while True:
                 print("")
         
     
-    if "observatory" in location:
-        print("nasrat ještě není1")
-        break
+    if "observatory" in location and "cleared" not in observatory_door:
+        print("Začneš vylézat zdejší kopec. Po pár minutách se konečně dostáváš k observatoři.")
+        print("Párkrát obervatoř obejdeš, jelikož hledáš vchod. Jenže ho nemůžeš najít.")
+        print("Po bližsím zkoumaní ho konečně najdeš. Je tu ale problém. Je zarostlý nějakou ostnatou kapradinou. Nikdy si ji neviděl, asi pochází z tohoto ostrova.")
+        print("")
+        print("Teď by se hodila pochodeň.")
+        print("")
+        if "torch" in inventory:
+            print("Naštěstí už pochodeň máš. Silně ji vezmeš do ruk a přiložíš ke kapradině.")
+            print("Kapradina ihned vzplane. Po pár minutách po kapradině zbyl jen popel a vchod se uvolnil.")
+            observatory_door.append("cleared")
+            print("")
+            while True:
+                tela = str(input("Chceš jít dovnitř observatoře? [ano, ne]: "))
+                print("")
+                if tela == "ano":
+                    location.remove("observatory")
+                    location.append("observatory_inside")
+                    break
+                if tela == "ne":
+                    print("Slezeš kopec zpátky dolů.")
+                    print("")
+                    location.remove("observatory")
+                    location.append("meeting_point_B")
+                    break
+                else:
+                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                    print("")
+        elif "torch" not in inventory:
+            print("Bohužel si pochodeň ještě nenašel. Slezeš kopec zpátky dolů a plánuješ jít jinam, dokud ji nedajdeš.")
+            print("")
+            while True:
+                pokracovani = input("Stiskni Enter pro pokračování: ")
+                if pokracovani.strip() == "":
+                    location.remove("observatory")
+                    location.append("meeting_point_B")
+                    print("")
+                    break
+                if pokracovani.strip() != "":
+                    print("Zkus to znovu.")
+    if "observatory" in location and "cleared" in observatory_door:
+        print("Začneš vylézat zdejší kopec. Po pár minutách se konečně dostáváš k observatoři.")
+        print("")
+        while True:
+            tela = str(input("Chceš jít dovnitř observatoře? [ano, ne]: "))
+            print("")
+            if tela == "ano":
+                location.remove("observatory")
+                location.append("observatory_inside")
+                break
+            if tela == "ne":
+                print("Slezeš kopec zpátky dolů.")
+                print("")
+                location.remove("observatory")
+                location.append("meeting_point_B")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("")
+    if "observatory_inside" in location:
+        print("Vejdeš do observatoře. Většina zdí i uvnitř je porostlá divnou kapradinou. Už ale neblokuje tvou cestu.")
+        print("Na levo si všimneš žebříku. Vylezeš po něm, pak následuje pár schodů a dorazil si na to co vypadá jako hlavní podlaží.")
+        print("Když se porozhlédneš uvidíš pár stolů s počítači. Které vypadají stále funkčně.")
+        print("")
+        while True:
+            tela = str(input("Chceš počítače prozkoumat víc? [ano, ne]: "))
+            print("")
+            if tela == "ano":
+                location.remove("observatory_inside")
+                location.append("observatory_computers")
+                break
+            if tela == "ne":
+                print("Vyjdeš z obervatoře a slezeš kopec zpátky dolů.")
+                print("")
+                location.remove("observatory_inside")
+                location.append("meeting_point_B")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("")
+    if "observatory_computers" in location and "fuse" in generator_observatory:
+        print("Zkusíš počítač zapnout. Po pár sekundách se počítač začne načítat.")
+        print("Počítač se načtě a naštěstí nepotřebuje heslo.")
+        print("Začneš tedy projíždět počítač a hledat jakékoli užitečné informace.")
+        print("")
+        print("Když v tu najednou jeden ze souborů upoutá tvou pozornost.")
+        print("Její název je ZÁZNAMY ANOMÁLIE.")
+        print("")
+        while True:
+            pokracovani = input("Stiskni Enter pro pokračování: ")
+            if pokracovani.strip() == "":
+                location.remove("observatory_computers")
+                location.append("observatory_records")
+                print("")
+                break
+            if pokracovani.strip() != "":
+                print("Zkus to znovu.")
+    if "observatory_computers" in location and "fuse" not in generator_observatory:
+        print("Zkusíš počítač zapnout. Po pár sekundách čekání ti dojde že se nic nestane.")
+        print("Blíže si prohlédneš počítač a zjistíš že mu chybí elektřina.")
+        print("")
+        print("Bohužel tak vycházíš s prázdnou z observatoře a slézáš kopec zpátky dolů")
+        print("")
+        while True:
+            pokracovani = input("Stiskni Enter pro pokračování: ")
+            if pokracovani.strip() == "":
+                location.remove("observatory_computers")
+                location.append("meeting_point_B")
+                print("")
+                break
+            if pokracovani.strip() != "":
+                print("Zkus to znovu.")
+    if "observatory_records" in location:
+        print("[ZÁZNAM ZE DNE 16.1#.2### 16:04]: Anomálie je v klidovém stavu. Zítra mají proběhnout finální testy. Celý výzkumný tým na tento okamžik čeká.")
+        print("[ZÁZNAM ZE DNE 17.1#.2### 06:19]: Za tři hodiny přijede velení. Chtějí také vidět finální testy.")
+        print("[ZÁZNAM ZE DNE 17.1#.2### 09:38]: Za dvacet minut začnou finální testy. Většina lidí ze všech oddělení už je na místě a netrpělivé čeká.")
+        print("[ZÁZNAM ZE DNE 17.1#.2### 10:21]: Něco se děje. Anomálie po celých pěti letech není v klidovém stavu. Možná se nám to podaří!")
+        print("[ZÁZNAM ZE DNE 17.1#.2### 10:33]: ZADRŽOVACÍ PROSTOR BYL PROLOMEN *intenzivní střelba* *hlasitý křik* ZADRŽOVACÍ PROSTOR BYL PROLOMEN *sirény* ZADRŽOVACÍ PROSTO#.##..")
+        print("")
+        print("V tichu tam dalších pět minut sedíš na židli před počítačem a srovnáváš si myšlenky. Na další soubory už se radši podívat nechceš.")
+        print("")
+        while True:
+            pokracovani = input("Stiskni Enter pro pokračování: ")
+            if pokracovani.strip() == "":
+                location.remove("observatory_records")
+                location.append("observatory_drawer")
+                print("")
+                break
+            if pokracovani.strip() != "":
+                print("Zkus to znovu.")
+    if "observatory_drawer" in location:
+        print("Zkusíš aspoň ještě otevřít šuplíky u stolu u kterého sedíš.")
+        print("Po otevření šuplíku si...")
+        if "night_vision" in observatory_loot:
+            print("Našel brýle nočního vidění. Schováš si je k sobě pro další využití.")
+            observatory_loot.remove("night_vision")
+            inventory.append("night_vision")
+            print("")
+            print("Odejdeš z observatoře a slezeš kopec zpátky dolů.")
+            print("")
+            while True:
+                pokracovani = input("Stiskni Enter pro pokračování: ")
+                if pokracovani.strip() == "":
+                    location.remove("observatory_drawer")
+                    location.append("meeting_point_B")
+                    print("")
+                    break
+                if pokracovani.strip() != "":
+                    print("Zkus to znovu.")
+        elif "night_vision" not in observatory_loot:
+            print("Bohužel nic nenašel.")
+            print("")
+            print("Odejdeš z observatoře a slezeš kopec zpátky dolů.")
+            print("")
+            while True:
+                pokracovani = input("Stiskni Enter pro pokračování: ")
+                if pokracovani.strip() == "":
+                    location.remove("observatory_drawer")
+                    location.append("meeting_point_B")
+                    print("")
+                    break
+                if pokracovani.strip() != "":
+                    print("Zkus to znovu.")
+
+
+    
     if "fishing_hut" in location:
-        print("nasrat ještě není2")
+        print("nasrat ještě není")
         break
