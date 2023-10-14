@@ -37,7 +37,8 @@ while True:
             else:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
-
+    
+    
     if "shipwreck" in location:
         print("Porozhlédneš se kolem a po větším zkoumání svého okolí vidíš dvě místa kam se můžeš vydat.")
         print("Můžeš se porozhlédnout po vraku lodi na které si připlul nebo jít prohlédnout a prohledat dvě mrtvá těla lidí opodál po tvé pravici, kteří s tebou pravděpodobně byli na lodi.")
@@ -156,6 +157,7 @@ while True:
     if "guard_bodies_inspection_final" in location:
         print("Pak si našel nějakou nahrávku. S největší pravděpodobností patřila tomu strážnému.")
         print("Ještě byla od krve jak jí pevně držel, když se mu to asi přihodilo...")
+        print("")
         while True:
             tela = str(input("Chceš si nahrávku přehrát? [ano, ne]: "))
             if tela == "ano":
@@ -209,5 +211,90 @@ while True:
 
 
     if "meeting_point_A" in location:
-        print("pičo konec zmrde")
+        print("Ujdeš pár metrů a začneš se rozlížet kolem.")
+        print("Před tebou stojí hustý listnatý les. Napravo vidíš pokračovat pláž kolem moře a ve stromech nějakou bednu. Když se podíváš nalevo tak spatříš maják. Který se vyjímá na útesu u pobřeží.")
+        print("")
+        while True:
+            rozhodnuti = int(input("Kam se chceš vydat? [1 - maják, 2 - les, 3 - bedna]: "))
+            if rozhodnuti == 1:
+                location.remove("meeting_point_A")
+                location.append("lighthouse")
+                print("")
+                break
+            elif rozhodnuti == 2:
+                location.remove("meeting_point_A")
+                location.append("stone_circle")
+                print("")
+                break
+            elif rozhodnuti == 3:
+                location.remove("meeting_point_A")
+                location.append("air_drop")
+                print("")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - maják, 2 - les, 3 - bedna].")
+                print("")
+
+
+    if "lighthouse" in location:
+        print("Smula pičo ještě není1")
+        break
+    if "stone_circle" in location:
+        print("Smula pičo ještě není2")
+        break
+
+
+    if "air_drop" in location:
+        print("Po chvíli chůze se přiblížíš k záhadné krabici. Všimneš si že je zaseknutá ve větvých i se svým padákem. Dojde ti že to je airdrop.")
+        print("Také si všimneš že krabice je ze spodu poškozená a je v ní díra, pravděpodobně kvůli nárazu na strom, takže věci co v ní byli museli vypadnout pod ní.")
+        print("")
+        while True:
+            tela = str(input("Chceš airdrop prozkoumat? [ano, ne]: "))
+            print("")
+            if tela == "ano":
+                location.remove("air_drop")
+                location.append("air_drop_close")
+                break
+            elif tela == "ne":
+                while True:
+                    nevim = int(input("Kam se tedy chceš vydat? [1 - vrak lodi, 2 - pláž]: "))
+                    print("")
+                    if nevim == 1:
+                        print("Vydáš se k vraku lodi.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                location.remove("air_drop")
+                                location.append("shipwreck")
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    elif nevim == 2:
+                        print("Vydáš se na pláž.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                location.remove("air_drop")
+                                location.append("villa_front")
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    else:
+                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
+                        print("")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("")
+    if "air_drop_close" in location:
+        print("test")
+        break
+    if "villa_front" in location:
+        print("test2")
         break
