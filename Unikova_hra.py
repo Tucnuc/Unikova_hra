@@ -15,6 +15,13 @@ if ship_rng == 1:
 
 guard_loot = ["medkit"]
 
+villa_front_loot = ["torch"]
+
+generator_loot = ["fuse"]
+generator_warehouse = []
+generator_observatory = []
+generators_visit = []
+
 airdrop_loot = []
 if airdrop_rng == random.randint(0, 2):
     airdrop_loot.append("revolver")
@@ -373,5 +380,402 @@ while True:
     
     
     if "villa_front" in location:
-        print("test2")
+        print("Procházíš se po pláží, sleduješ vlny na moři, když v tu najednou si všimneš že na levé straně pláže jsou jakési chatky.")
+        print("Je jich tak pět, nachází se po celé pláži a nad nimi jde vidět les co se na ostrově nachází")
+        print("")
+        while True:
+            tela = str(input("Chceš chatky prozkoumat? [ano, ne]: "))
+            print("")
+            if tela == "ano":
+                location.remove("villa_front")
+                location.append("villa_front_close")
+                break
+            elif tela == "ne":
+                while True:
+                    nevim = int(input("Kam se tedy chceš vydat? [1 - bedna, 2 - ke generátorům]: "))
+                    print("")
+                    if nevim == 1:
+                        print("Vydáš se k záhadné bedně.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                location.remove("villa_front")
+                                location.append("air_drop")
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    elif nevim == 2:
+                        print("Vydáš se ke generátorům.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                location.remove("villa_front")
+                                location.append("meeting_point_B")
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    else:
+                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
+                        print("")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("")
+    if "villa_front_close" in location:
+        print("Začneš prohledávat chatky. Prohledáš první, pak druhou, třetí a čtvrtou chatku, ale nic.")
+        print("Pak něco ale zahlédneš v páté poslední chatce. Po bližším prozkoumání si...")
+        if "torch" in villa_front_loot:
+            print("Našel pochodeň. Schováš si ho k sobě pro další využití.")
+            villa_front_loot.remove("torch")
+            inventory.append("torch")
+            print("")
+            while True:
+                nevim = int(input("Kam se chceš vydat teď? [1 - bedna, 2 - ke generátorům]: "))
+                print("")
+                if nevim == 1:
+                    print("Vydáš se k záhadné bedně.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("villa_front_close")
+                            location.append("air_drop")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                elif nevim == 2:
+                    print("Vydáš se ke generátorům.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("villa_front_close")
+                            location.append("meeting_point_B")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                else:
+                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
+                    print("")
+        elif "torch" not in villa_front_loot:
+            print("Bohužel nic nenašel.")
+            print("")
+            while True:
+                nevim = int(input("Kam se chceš vydat teď? [1 - bedna, 2 - ke generátorům]: "))
+                print("")
+                if nevim == 1:
+                    print("Vydáš se k záhadné bedně.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("villa_front_close")
+                            location.append("air_drop")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                elif nevim == 2:
+                    print("Vydáš se ke generátorům.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("villa_front_close")
+                            location.append("meeting_point_B")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                else:
+                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
+                    print("")
+
+
+    if "meeting_point_B" in location:
+        print("Po pár minutách chůze zahlédneš kovový drátěný plot. Za ním si všimneš že je hodně nějakých žlutých přístrojů. Vypadá to, že tohle bude zdroj energie pro celý ostrov.")
+        print("Pak se podíváš nahoru a všimneš si velké budovy s kulatou střechou na skále za generátory. Po bližším pozorování ti dojde že je to observatoř.")
+        print("Když se podíváš doleva tak vidíš velké jezero, když sleduješ jeho břeh tak zanedloho si všimneš malého mola s budkou.")
+        print("Na druhé straně jezera také spatříš jakousi dřevěnou hlídací věž. A vedle ní nějaké dvě větší budovy. Nedokážeš ale rozeznat co je to za budovu z důvodu velké vzdálenosti.")
+        print("Když se podíváš za sebe, tak uvidíš dlouhou pláž, která vede kolem moře. Také spatříš jakousi chatku.")
+        print("")
+        while True:
+            rozhodnuti = int(input("Kam se chceš vydat? [1 - generátory, 2 - observatoř, 3 - rybářská chatka, 4 - pláž]: "))
+            if rozhodnuti == 1:
+                location.remove("meeting_point_B")
+                location.append("generators")
+                print("")
+                break
+            elif rozhodnuti == 2:
+                location.remove("meeting_point_B")
+                location.append("observatory")
+                print("")
+                break
+            elif rozhodnuti == 3:
+                location.remove("meeting_point_B")
+                location.append("fishing_hut")
+                print("")
+                break
+            elif rozhodnuti == 4:
+                location.remove("meeting_point_B")
+                location.append("villa_front")
+                print("")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - generátory, 2 - observatoř, 3 - rybářská chatka, 4 - pláž].")
+                print("")
+
+
+    if "generators" in location:
+        print("Dojdeš ke plotu. Všimneš si že na levo se nachází díra v plotě, tak ní projdeš. Nyní se nacházíš uvnitř plotu a před tebou je několik generátorů.")
+        print("Na pravo ale uvidíš jakousi bezpečností budku. Opodál spatříš jediný otevřený generátor.")
+        print("")
+        while True:
+            rozhodnuti = int(input("Co chceš prozkoumat nebo kam se vydat? [1 - bezpečnostní budka, 2 - otevřený generátor, 3 - odejít]: "))
+            if rozhodnuti == 1:
+                location.remove("generators")
+                location.append("generators_security")
+                print("")
+                break
+            elif rozhodnuti == 2:
+                location.remove("generators")
+                location.append("generators_fuses")
+                print("")
+                break
+            elif rozhodnuti == 3:
+                location.remove("generators")
+                location.append("meeting_point_B")
+                print("")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bezpečnostní budka, 2 - otevřený generátor, 3 - odejít].")
+                print("")
+    if "generators_security" in location:
+        print("Vejdeš dovnitř budky. Po následném hledání si...")
+        if "fuse" in generator_loot:
+            print("Našel pojistku. Schováš si ho k sobě pro další využití.")
+            generator_loot.remove("fuse")
+            inventory.append("fuse")
+            print("")
+            print("Vydáš se zpátky.")
+            print("")
+            while True:
+                pokracovani = input("Stiskni Enter pro pokračování: ")
+                if pokracovani.strip() == "":
+                    location.remove("generators_security")
+                    location.append("generators")
+                    print("")
+                    break
+                if pokracovani.strip() != "":
+                    print("Zkus to znovu.")
+        elif "fuse" not in generator_loot:
+            print("Bohužel nic nenašel.")
+            print("")
+            print("Vydáš se zpátky.")
+            print("")
+            while True:
+                pokracovani = input("Stiskni Enter pro pokračování: ")
+                if pokracovani.strip() == "":
+                    location.remove("generators_security")
+                    location.append("generators")
+                    print("")
+                    break
+                if pokracovani.strip() != "":
+                    print("Zkus to znovu.")
+    if "generators_fuses" in location:
+        print("Dojdeš k otevřenému generátoru. Po následném zkoumání zjistíš že se jedná o jakýsi hlavní generátor.")
+        print("Nachází se v něm deska, kam se dá vložit pojistka. Každý otvor má u sebe popisek lokace, která se s největší pravděpodobností spustí a dostane elektřinu.")
+        print("")
+        if "fuse" in inventory:
+            print("Vytáhneš dřívě získanou pojistku z kapsy. Vidíš dva volné otvory kam by mohla pasovat.")
+            print("U prvního otvoru stojí: SKLADY. U druhého stojí: OBSERVATOŘ.")
+            print("")
+            while True:
+                gens = int(input("Co chceš udělat? [1 - zapnout sklady, 2 - zapnout observatoř, 3 - odejít]: "))
+                print("")
+                if gens == 1:
+                    print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                    print("")
+                    inventory.remove("fuse")
+                    generator_warehouse.append("fuse")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                elif gens == 2:
+                    print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                    print("")
+                    inventory.remove("fuse")
+                    generator_observatory.append("fuse")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                elif gens == 3:
+                    print("Odstoupíš od generátoru.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            location.remove("generators_fuses")
+                            location.append("generators")
+                            print("")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                else:
+                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - zapnout sklady, 2 - zapnout observatoř, 3 - odejít].")
+                    print("")
+        if "fuse" not in inventory and "fuse" not in generator_warehouse and "fuse" not in generator_observatory:
+            print("Bohužel si ještě nenašel žádnou pojistku. Tím pádem nemáš čím zapnout generátory.")
+            print("")
+            print("Odstoupíš od generátoru.")
+            print("")
+            while True:
+                pokracovani = input("Stiskni Enter pro pokračování: ")
+                if pokracovani.strip() == "":
+                    location.remove("generators_fuses")
+                    location.append("generators")
+                    print("")
+                    break
+                if pokracovani.strip() != "":
+                    print("Zkus to znovu.")
+        if "fuse" in generator_warehouse:
+            otaz = str(input("Chceš pojistku umístiť jinam? [ano, ne]: "))
+            print("")
+            if otaz == "ano": 
+                print("Přijdeš k desce a vytáhneš dříve umístěnou pojistku.")
+                print("")
+                generator_warehouse.remove("fuse")
+                while True:
+                    gens = int(input("Kam chceš pojistku umístit teď? [1 - SKLADY, 2 - OBSERVATOŘ]"))
+                    print("")
+                    if gens == 1:
+                        generator_warehouse.append("fuse")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    elif gens == 2:
+                        generator_observatory.append("fuse")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    else:
+                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                        print("")
+            elif otaz == "ne":
+                print("")
+                print("Odstoupíš od generátoru.")
+                print("")
+                while True:
+                    pokracovani = input("Stiskni Enter pro pokračování: ")
+                    if pokracovani.strip() == "":
+                        location.remove("generators_fuses")
+                        location.append("generators")
+                        print("")
+                        break
+                    if pokracovani.strip() != "":
+                        print("Zkus to znovu.")
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                print("")
+        if "fuse" in generator_observatory:
+            otaz = str(input("Chceš pojistku umístiť jinam? [ano, ne]: "))
+            if otaz == "ano":
+                print("Přijdeš k desce a vytáhneš dříve umístěnou pojistku.")
+                print("")
+                generator_observatory.remove("fuse")
+                while True:
+                    gens = int(input("Kam chceš pojistku umístit teď? [1 - SKLADY, 2 - OBSERVATOŘ]"))
+                    if gens == 1:
+                        generator_warehouse.append("fuse")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("Po-té odstoupíš od generátoru.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                location.remove("generators_fuses")
+                                location.append("generators")
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    elif gens == 2:
+                        generator_observatory.append("fuse")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("Po-té odstoupíš od generátoru.")
+                        print("")
+                        while True:
+                            pokracovani = input("Stiskni Enter pro pokračování: ")
+                            if pokracovani.strip() == "":
+                                location.remove("generators_fuses")
+                                location.append("generators")
+                                print("")
+                                break
+                            if pokracovani.strip() != "":
+                                print("Zkus to znovu.")
+                        break
+                    else:
+                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                        print("")
+            elif otaz == "ne":
+                print("")
+                print("Odstoupíš od generátoru.")
+                print("")
+                while True:
+                    pokracovani = input("Stiskni Enter pro pokračování: ")
+                    if pokracovani.strip() == "":
+                        location.remove("generators_fuses")
+                        location.append("generators")
+                        print("")
+                        break
+                    if pokracovani.strip() != "":
+                        print("Zkus to znovu.")
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                print("")
+        
+    
+    if "observatory" in location:
+        print("nasrat ještě není1")
+        break
+    if "fishing_hut" in location:
+        print("nasrat ještě není2")
         break
