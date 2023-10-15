@@ -27,6 +27,8 @@ generators_visit = []
 observatory_door = []
 observatory_loot = ["night_vision"]
 
+lighthouse_visit = []
+
 airdrop_loot = []
 if airdrop_rng == random.randint(0, 2):
     airdrop_loot.append("revolver")
@@ -255,11 +257,6 @@ while True:
             else:
                 print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - maják, 2 - les, 3 - bedna].")
                 print("")
-
-
-    if "lighthouse" in location:
-        print("Smula pičo ještě není1")
-        break
 
 
     if "air_drop" in location:
@@ -1196,6 +1193,108 @@ while True:
                 else:
                     print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
                     print("")
+
+
+    if "lighthouse" in location:
+        print("Vydáš se k majáku. Než se k němu přiblížíš tak už obdivuješ útes na kterém je a jak pod ním zuří vlny moře.")
+        print("Jakmile dojdeš k majáku tak se podíváš nahoru, jak vysoký vlastně je.")
+        print("Podíváš se kolem a v dáli na pravo zahlédneš jakousi dřevěnou hlídací věž a za ní dvě nerozpoznatelné budovy.")
+        print("")
+        while True:
+            tela = str(input("Chceš vylézt nahoru majáku? [ano, ne]: "))
+            print("")
+            if tela == "ano":
+                location.remove("lighthouse")
+                location.append("lighthouse_top")
+                break
+            elif tela == "ne":
+                if "check" in lighthouse_visit:
+                    while True:
+                        nevim = int(input("Kam se chceš vydat? [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo]: "))
+                        print("")
+                        if nevim == 1:
+                            location.remove("lighthouse")
+                            location.append("shipwreck")
+                            print("")
+                            break
+                        elif nevim == 2:
+                            location.remove("lighthouse")
+                            location.append("watch_tower")
+                            print("")
+                            break
+                        elif nevim == 3:
+                            location.remove("lighthouse")
+                            location.append("plane")
+                            print("")
+                            break
+                        else:
+                            print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo].")
+                            print("")
+                    break
+                if "check" not in lighthouse_visit:
+                    while True:
+                        nevim = int(input("Kam se chceš vydat? [1 - vrak lodi, 2 - hlídací věž]: "))
+                        print("")
+                        if nevim == 1:
+                            location.remove("lighthouse")
+                            location.append("shipwreck")
+                            print("")
+                            break
+                        elif nevim == 2:
+                            location.remove("lighthouse")
+                            location.append("watch_tower")
+                            print("")
+                            break
+                        else:
+                            print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž].")
+                            print("")
+                    break
+    if "lighthouse_top" in location:
+        print("Vkročíš dovnitř majáku. Pohlédneš nahoru a uvidíš desítky schodů a dojde ti do čeho ses to vlastně dostal.")
+        print("Po ani nevíš kolika schodech a jednom finálním žebříku ses konečně vyhrabal nahoru.")
+        print("Rozehlédneš se po ostrově a začneš obdivovat výhlet. Pak si ale nalevo něčeho všimneš.")
+        print("Kromě hlídací věže a dvou budov zahlédneš něco co vypadá jako letadlo. Na útesu dál za majákem")
+        print("Možná to bude moje cesta ven, pomyslíš si...")
+        print("")
+        lighthouse_visit.append("check")
+        print("Následné slezeš dolů a začneš přemýšlět kam dál jít.")
+        print("")
+        while True:
+            pokracovani = input("Stiskni Enter pro pokračování: ")
+            if pokracovani.strip() == "":
+                location.remove("lighthouse_top")
+                location.append("lighthouse_down")
+                print("")
+                break
+            if pokracovani.strip() != "":
+                print("Zkus to znovu.")
+    if "lighthouse_down" in location:
+        while True:
+            nevim = int(input("Kam se chceš vydat? [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo]: "))
+            print("")
+            if nevim == 1:
+                location.remove("lighthouse_down")
+                location.append("shipwreck")
+                print("")
+                break
+            elif nevim == 2:
+                location.remove("lighthouse_down")
+                location.append("watch_tower")
+                print("")
+                break
+            elif nevim == 3:
+                location.remove("lighthouse_down")
+                location.append("plane")
+                print("")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo].")
+                print("")
+
+
+    if "plane" in location:
+        print("Po pár minutách chůze ve směru dřívě spatřeného letadla z m")
+        break
 
 
     if "watch_tower" in location:
