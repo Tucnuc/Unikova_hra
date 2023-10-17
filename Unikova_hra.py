@@ -32,6 +32,8 @@ lighthouse_visit = []
 
 watch_tower_loot = ["radio"]
 
+plane_parts = []
+
 warehouses_loot_left = ["plane_propeller"]
 warehouses_loot_right = ["plane_steering_wheel", "plane_wheel"]
 if warehouses_rng == 1:
@@ -1612,4 +1614,130 @@ while True:
     
     if "plane" in location:
         print("Po pár minutách chůze ve směru dřívě spatřeného letadla z majáku, se k němu konečně dostavíš.")
+        print("Už od prvního pohledu si ale všimneš že letadlu chybí vrtule. Začneš se obávat že tvoje cesta domů se úplně nevyplní.")
+        print("Po bližším proukoumaní si zjistil že mu také chybí jedno z kol a samotné řídící kolo. Dojde ti že tímhle v tomhle stavu vážně neodletíš.")
+        print("")
+        while True:
+            pokracovani = input("Stiskni Enter pro pokračování: ")
+            if pokracovani.strip() == "":
+                location.remove("plane")
+                location.append("plane_repairs")
+                print("")
+                break
+            if pokracovani.strip() != "":
+                print("Zkus to znovu.")
+    if "plane_repairs" in location:
+        while True:
+            if "plane_propeller" in plane_parts and "plane_wheel" in plane_parts and "plane_steering_wheel" in plane_parts:
+                print("Podíváš se na výsledek tvé tvrdé práce. Letadlo je hotové a připraveno k odletu.")
+                print("")
+                while True:
+                    tela = int(input("Chceš nastoupit a odletět? Nebo ještě zůstat a prozkoumávat dál. [1 - odletět, 2 - zůstat]: "))
+                    print("")
+                    if tela == 1:
+                        location.remove("plane_repairs")
+                        location.append("end")
+                        break
+                    elif tela == 2:
+                        location.remove("plane_repairs")
+                        location.append("plane_back")
+                        break
+                    else:
+                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - odletět, 2 - zůstat].")
+                        print("")
+                break
+            elif "plane_propeller" in inventory:
+                print("Připravíš si svou dříve nalezenou vrtuli. Vyzvedneš ji a nasadíš na motor. Následně ji upevníš.")
+                print("")
+                inventory.remove("plane_propeller")
+                plane_parts.append("plane_propeller")
+                while True:
+                    pokracovani = input("Stiskni Enter pro pokračování: ")
+                    if pokracovani.strip() == "":
+                        print("")
+                        break
+                    if pokracovani.strip() != "":
+                        print("Zkus to znovu.")
+            elif "plane_wheel" in inventory:
+                print("Připravíš si své dříve nalezené kolo. Nasadíš ho na prázdné místo na podvosku a upevníš.")
+                print("")
+                inventory.remove("plane_wheel")
+                plane_parts.append("plane_wheel")
+                while True:
+                    pokracovani = input("Stiskni Enter pro pokračování: ")
+                    if pokracovani.strip() == "":
+                        print("")
+                        break
+                    if pokracovani.strip() != "":
+                        print("Zkus to znovu.")
+            elif "plane_steering_wheel" in inventory:
+                print("Připravíš si své dříve nalezené řídící kolo. Nasadíš ho na volné místo na místě pilota a upevníš.")
+                print("")
+                inventory.remove("plane_steering_wheel")
+                plane_parts.append("plane_steering_wheel")
+                while True:
+                    pokracovani = input("Stiskni Enter pro pokračování: ")
+                    if pokracovani.strip() == "":
+                        print("")
+                        break
+                    if pokracovani.strip() != "":
+                        print("Zkus to znovu.")
+            elif "plane_propeller" not in inventory and "plane_wheel" not in inventory and "plane_steering_wheel" not in inventory:
+                if plane_parts:
+                    print("Bohužel už u sebe nemáš další součástky pro opravu letadla. Rozhodneš se tedy vrátit a pokračovat v hledání.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            print("")
+                            location.remove("plane_repairs")
+                            location.append("plane_back")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+                if not plane_parts:
+                    print("Bohužel si zatím nenašel žádné součástky na opravu letadla. Rozhodneš se tedy vrátit a začít v hledání.")
+                    print("")
+                    while True:
+                        pokracovani = input("Stiskni Enter pro pokračování: ")
+                        if pokracovani.strip() == "":
+                            print("")
+                            location.remove("plane_repairs")
+                            location.append("plane_back")
+                            break
+                        if pokracovani.strip() != "":
+                            print("Zkus to znovu.")
+                    break
+    if "plane_back" in location:
+        while True:
+            tela = int(input("Kam se chceš vydat teď? [1 - maják]: "))
+            print("")
+            if tela == 1:
+                location.remove("plane_back")
+                location.append("lighthouse")
+                break
+            else:
+                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - odletět, 2 - zůstat].")
+                print("")
+
+
+    if "end" in location:
+        print("Nastartuješ motor. Motor začne silně hučet a vidíš jak se vrtule začne roztáčet. Jakmile usoudíš že vrtule se točí dostatečně rychle, stlačíš páku.")
+        print("Letadlo se začne rozjíždět. Začneš se ale rychle přibližovat ke konci útesu, kde letadlo stálo. Páku stlačíš silněji, co nejvíc co to jde.")
+        print("Těsně před koncem útesu cítíš jak tedla začne vzlétávat. „JO! Vyšlo to!“, zařveš ze svých plných plic.")
+        print("Po-té už se jen spokojeně otočíš na ostrov s vítězným výrazem, od kterého se vzdaluješ jak letíš konečně pryč.")
+        print("")
+        while True:
+            pokracovani = input("Stiskni Enter pro pokračování: ")
+            if pokracovani.strip() == "":
+                print("")
+                location.remove("end")
+                location.append("credits")
+                break
+            if pokracovani.strip() != "":
+                print("Zkus to znovu.")
+    if "credits" in location:
+        print("Děkuji vám za dohrání mé hry. Doufám že jste si ji aspoň trochu užil, stejně jako já když jsem ji vytvářel.")
+        print("")
         break
