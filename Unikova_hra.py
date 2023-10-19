@@ -51,12 +51,12 @@ if fishing_rng == 1:
 
 while True:
     if "start" in location:
-        print("Probouzíš se na ostrově. Ohlédneš se kolem sebe a vidíš pár mrtvol a za sebou ztrozkotanou loď.")
-        print("Po chvíli se ti do hlavy vrací vzpomínky o tom jak si plul po moři, když v tu najednou přišla velká bouře a slyšel si výbuch. Po té už si pamatuješ jen na své probuzení zde na ostrově.")
-        print("Po pár minutách co se zpamatuješ ze šoku, si uvědomíš že bude lepší začít něco dělat. Třeba aspoň prozkoumat kde si to vlastně skončil.")
+        print("Probouzíš se na ostrově. Ohlédneš se kolem sebe a vidíš pár mrtvol a za sebou ztroskotanou loď.")
+        print("Po chvíli se ti do hlavy vrací vzpomínky o tom, jak si plul po moři, když v tu najednou přišla velká bouře a slyšel si výbuch. Pak už si pamatuješ jen na své probuzení zde na ostrově.")
+        print("Po pár minutách co se zpamatuješ ze šoku, si uvědomíš, že bude lepší začít něco dělat. Třeba aspoň prozkoumat, kde si to vlastně skončil.")
         print("")
         while True:
-            okoli = str(input("Chceš prozkoumat své okolí než se vidáš hlouběji do ostrova? [ano, ne]: "))
+            okoli = str(input("Chceš prozkoumat své okolí než se vydáš hlouběji do ostrova? [ano, ne]: "))
             if okoli == "ano":
                 location.remove("start")
                 location.append("shipwreck")
@@ -68,13 +68,13 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     
     
     if "shipwreck" in location:
         print("Porozhlédneš se kolem a po větším zkoumání svého okolí vidíš dvě místa kam se můžeš vydat.")
-        print("Můžeš se porozhlédnout po vraku lodi na které si připlul nebo jít prohlédnout a prohledat dvě mrtvá těla lidí opodál po tvé pravici, kteří s tebou pravděpodobně byli na lodi.")
+        print("Můžeš se porozhlédnout po vraku lodi, na kterém si připlul nebo jít prohlédnout a prohledat dvě mrtvá těla lidí opodál po tvé pravici, kteří s tebou pravděpodobně byli na lodi.")
         print("")
         while True:
             vrak = int(input("Kam se chceš vydat? [1 - vrak lodi, 2 - těla lidí, 3 - odejít]: "))
@@ -94,12 +94,12 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - těla lidí, 3 - odejít].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - těla lidí, 3 - odejít].")
                 print("")
     if "shipwreck_close" in location:
         print("Po chvíli hledání způsobu jak se dostat na loď, si všimneš části která je víc zabořená do písku.")
-        print("Vylezeš tedy na palubu. Vidíš že vnitřek lodi je v plamenech, pravděpodobně kvůli dřívějšímu výbuchu. Rozhodneš se tedy prohledat aspoň palubu.")
-        print("Po chvíli hledání si...")
+        print("Vylezeš tedy na palubu. Vidíš, že vnitřek lodi je v plamenech, pravděpodobně kvůli dřívějšímu výbuchu. Rozhodneš se tedy prohledat aspoň palubu.")
+        print("Po chvíli hledání jsi...")
         print("")
         if "flashlight" in shipwreck_loot:
             print("Našel svítilnu. Schováš si ji k sobě pro další využití.")
@@ -130,8 +130,8 @@ while True:
                     print("Zkus to znovu.")
     if "guard_bodies" in location:
         print("Jakmile dojdeš k tělům, tak zjistíš že tyhle lidi s tebou na lodi nebyli. Vypadají jako nějací strážní.")
-        print("Jejich těla mají v okolí torsa obří drápance, jak od nějakého zvířete.")
-        print("Znepokojí tě myšlenka že těla vypadají čerstvě. Takže ten kdo je zabil nebo to co je zabilo bude asi ještě někde poblíž na ostrově...")
+        print("Jejich těla mají v okolí hrudníku obří drápance, jak od nějakého zvířete.")
+        print("Znepokojí tě myšlenka, že těla vypadají čerstvě. Takže ten kdo je zabil nebo to co je zabilo bude asi ještě někde poblíž na ostrově...")
         print("")
         while True:
             tela = str(input("Chceš těla prohledat? [ano, ne]: "))
@@ -155,10 +155,10 @@ while True:
                         print("Zkus to znovu.")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "guard_bodies_inspection" in location:
-        print("Po bližším prohledání si...")
+        print("Po bližším prohledání jsi...")
         if "medkit" in guard_loot:
             print("Našel MedKit. Schoval sis ho pro budoucí použití.")
             guard_loot.remove("medkit")
@@ -189,7 +189,7 @@ while True:
                     print("Zkus to znovu.")
     if "guard_bodies_inspection_final" in location:
         print("Pak si našel nějakou nahrávku. S největší pravděpodobností patřila tomu strážnému.")
-        print("Ještě byla od krve jak jí pevně držel, když se mu to asi přihodilo...")
+        print("Ještě byla od krve, jak jí pevně držel, když se mu to přihodilo...")
         print("")
         while True:
             tela = str(input("Chceš si nahrávku přehrát? [ano, ne]: "))
@@ -213,7 +213,7 @@ while True:
                         print("Zkus to znovu.")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "guard_bodies_inspection_final_tape" in location:
         print("Nahrávka se po pár sekundách začne přehrávat.")
@@ -223,14 +223,14 @@ while True:
         print("[Hlas 1]: Ještě chvíli, už budeme venku z lesa, víš že to nemá rádo sluneční svit.")
         print("[Hlas 1]: Zvládli jsme to! Jo! Jsme venku.. huf")
         print("[Hlas 2]: JO! Pane bože! huf.. huf.. *slabé zvuky deště*")
-        print("[Hlas 1]: KURVA! Proč musí začít pršet zrovna teď!? Potřebujeme sluneční svit.")
+        print("[Hlas 1]: KU***! Proč musí začít pršet zrovna teď!? Potřebujeme sluneční svit.")
         print("[Hlas 2]: Myslím.. že nás to dohnalo.")
         print("[Hlas 1]: Do prdele! Nejdu dolů bez boje! *zvuky střelby*")
         print("[Hlas 1]: AAAAAA *zvuky seknutí* eaa..")
         print("[Hlas 2]: Je konec... *zvuky seknutí* *zvuk kašlání*")
         print("[]: beep beep beep...")
         print("")
-        print("Po pár minutách ticha a přemýšlení se rozhodneš zvednout a vydat se na dál. Než čekat na konec jaký měli oni.")
+        print("Po pár minutách ticha a přemýšlení se rozhodneš zvednout a vydat se dál. Než čekat na konec jaký měli oni.")
         print("")
         while True:
             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -265,13 +265,13 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - maják, 2 - les, 3 - bedna].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - maják, 2 - les, 3 - bedna].")
                 print("")
 
 
     if "air_drop" in location:
-        print("Po chvíli chůze se přiblížíš k záhadné krabici. Všimneš si že je zaseknutá ve větvých i se svým padákem. Dojde ti že to je airdrop.")
-        print("Také si všimneš že krabice je ze spodu poškozená a je v ní díra, pravděpodobně kvůli nárazu na strom, takže věci co v ní byli museli vypadnout pod ní.")
+        print("Po chvíli chůze se přiblížíš k záhadné krabici. Všimneš si, že je zaseknutá ve větvých i se svým padákem. Dojde ti, že to je airdrop.")
+        print("Také si všimneš, že krabice je ze spodu poškozená a je v ní díra, pravděpodobně z nárazu na strom, takže věci co v ní byly musely vypadnout pod ní.")
         print("")
         while True:
             tela = str(input("Chceš airdrop prozkoumat? [ano, ne]: "))
@@ -297,14 +297,14 @@ while True:
                         location.append("villa_front")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
                         print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "air_drop_close" in location:
-        print("Přiblížíš se k airdropu, podíváš se pod něj. Po pečlivém hledání si...")
+        print("Přiblížíš se k airdropu, podíváš se pod něj. Po pečlivém hledání jsi...")
         if "revolver" in airdrop_loot:
             print("Našel revolver. Schováš si ho k sobě pro další využití.")
             airdrop_loot.remove("revolver")
@@ -326,7 +326,7 @@ while True:
                     location.append("villa_front")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
                     print("")
         elif "revolver" not in airdrop_loot:
             print("Bohužel nic nenašel.")
@@ -347,12 +347,12 @@ while True:
                     location.append("villa_front")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - pláž].")
                     print("")
     
     
     if "villa_front" in location:
-        print("Procházíš se po pláží, sleduješ vlny na moři, když v tu najednou si všimneš že na levé straně pláže jsou jakési chatky.")
+        print("Procházíš se po pláži, sleduješ vlny na moři, když v tu najednou si všimneš, že na levé straně pláže jsou jakési chatky.")
         print("Je jich tak pět, nachází se po celé pláži a nad nimi jde vidět les co se na ostrově nachází")
         print("")
         while True:
@@ -379,17 +379,17 @@ while True:
                         location.append("meeting_point_B")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
                         print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "villa_front_close" in location:
         print("Začneš prohledávat chatky. Prohledáš první, pak druhou, třetí a čtvrtou chatku, ale nic.")
-        print("Pak něco ale zahlédneš v páté poslední chatce. Po bližším prozkoumání si...")
+        print("Pak něco ale zahlédneš v páté poslední chatce. Po bližším prozkoumání jsi...")
         if "torch" in villa_front_loot and "torch" not in inventory:
-            print("Našel pochodeň. Schováš si ho k sobě pro další využití.")
+            print("Našel pochodeň. Schováš si ji k sobě pro další využití.")
             villa_front_loot.remove("torch")
             inventory.append("torch")
             print("")
@@ -409,7 +409,7 @@ while True:
                     location.append("meeting_point_B")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
                     print("")
         elif "torch" not in villa_front_loot:
             print("Bohužel nic nenašel.")
@@ -430,7 +430,7 @@ while True:
                     location.append("meeting_point_B")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
                     print("")
         elif "torch" in villa_front_loot and "torch" in inventory:
             print("Našel pochodeň. Jelikož už ale jednu máš, tak ti přijde nepotřebné mít dvě. Necháš ji v chatce, kde si ji našel.")
@@ -451,14 +451,14 @@ while True:
                     location.append("meeting_point_B")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - bedna, 2 - ke generátorům].")
                     print("")
 
 
     if "meeting_point_B" in location:
-        print("Po pár minutách chůze zahlédneš kovový drátěný plot. Za ním si všimneš že je hodně nějakých žlutých přístrojů. Vypadá to, že tohle bude zdroj energie pro celý ostrov.")
-        print("Pak se podíváš nahoru a všimneš si velké budovy s kopulovitou střechou na skále za generátory. Po bližším pozorování ti dojde že je to observatoř.")
-        print("Když se podíváš doleva tak vidíš velké jezero, když sleduješ jeho břeh tak zanedloho si všimneš malého mola s budkou.")
+        print("Po pár minutách chůze zahlédneš kovový drátěný plot. Za ním si všimneš, že je hodně nějakých žlutých přístrojů. Vypadá to, že tohle bude zdroj energie pro celý ostrov.")
+        print("Pak se podíváš nahoru a všimneš si velké budovy s kopulovitou střechou na skále za generátory. Po bližším pozorování ti dojde, že je to observatoř.")
+        print("Když se podíváš doleva, tak vidíš velké jezero. Když sleduješ jeho břeh, tak zanedloho si všimneš malého mola s budkou.")
         print("Na druhé straně jezera také spatříš jakousi dřevěnou hlídací věž. A vedle ní nějaké dvě větší budovy. Nedokážeš ale rozeznat co je to za budovu z důvodu velké vzdálenosti.")
         print("Když se podíváš za sebe, tak uvidíš dlouhou pláž, která vede kolem moře. Také spatříš jakousi chatku.")
         print("")
@@ -485,12 +485,12 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - generátory, 2 - observatoř, 3 - rybářská chatka, 4 - pláž].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - generátory, 2 - observatoř, 3 - rybářská chatka, 4 - pláž].")
                 print("")
 
 
     if "generators" in location:
-        print("Dojdeš ke plotu. Všimneš si že na levo se nachází díra v plotě, tak ní projdeš. Nyní se nacházíš uvnitř plotu a před tebou je několik generátorů.")
+        print("Dojdeš ke plotu. Všimneš si že na levo se nachází díra v plotě, tak ní projdeš. Nyní se nacházíš uvnitř a před tebou je několik generátorů.")
         print("Na pravo ale uvidíš jakousi bezpečností budku. Opodál spatříš jediný otevřený generátor.")
         print("")
         while True:
@@ -511,12 +511,12 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - bezpečnostní budka, 2 - otevřený generátor, 3 - odejít].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - bezpečnostní budka, 2 - otevřený generátor, 3 - odejít].")
                 print("")
     if "generators_security" in location:
-        print("Vejdeš dovnitř budky. Po následném hledání si...")
+        print("Vejdeš dovnitř budky. Po následném hledání jsi...")
         if "fuse" in generator_loot:
-            print("Našel pojistku. Schováš si ho k sobě pro další využití.")
+            print("Našel pojistku. Schováš si ji k sobě pro další využití.")
             generator_loot.remove("fuse")
             inventory.append("fuse")
             print("")
@@ -546,7 +546,7 @@ while True:
                 if pokracovani.strip() != "":
                     print("Zkus to znovu.")
     if "generators_fuses" in location:
-        print("Dojdeš k otevřenému generátoru. Po následném zkoumání zjistíš že se jedná o jakýsi hlavní generátor.")
+        print("Dojdeš k otevřenému generátoru. Po následném zkoumání zjistíš, že se jedná o jakýsi hlavní generátor.")
         print("Nachází se v něm deska, kam se dá vložit pojistka. Každý otvor má u sebe popisek lokace, která se s největší pravděpodobností spustí a dostane elektřinu.")
         print("")
         if "fuse" in inventory:
@@ -557,7 +557,7 @@ while True:
                 gens = int(input("Co chceš udělat? [1 - zapnout sklady, 2 - zapnout observatoř, 3 - odejít]: "))
                 print("")
                 if gens == 1:
-                    print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                    print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš, jak některé generátory začly dělat hluk.")
                     print("")
                     inventory.remove("fuse")
                     generator_warehouse.append("fuse")
@@ -570,7 +570,7 @@ while True:
                             print("Zkus to znovu.")
                     break
                 elif gens == 2:
-                    print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                    print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš, jak některé generátory začly dělat hluk.")
                     print("")
                     inventory.remove("fuse")
                     generator_observatory.append("fuse")
@@ -596,10 +596,10 @@ while True:
                             print("Zkus to znovu.")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - zapnout sklady, 2 - zapnout observatoř, 3 - odejít].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - zapnout sklady, 2 - zapnout observatoř, 3 - odejít].")
                     print("")
         if "fuse" not in inventory and "fuse" not in generator_warehouse and "fuse" not in generator_observatory:
-            print("Bohužel si ještě nenašel žádnou pojistku. Tím pádem nemáš čím zapnout generátory.")
+            print("Bohužel jsi ještě nenašel žádnou pojistku. Tím pádem nemáš čím zapnout generátory.")
             print("")
             print("Odstoupíš od generátoru.")
             print("")
@@ -624,7 +624,7 @@ while True:
                     print("")
                     if gens == 1:
                         generator_warehouse.append("fuse")
-                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš, jak některé generátory začly dělat hluk.")
                         print("")
                         while True:
                             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -636,7 +636,7 @@ while True:
                         break
                     elif gens == 2:
                         generator_observatory.append("fuse")
-                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš, jak některé generátory začly dělat hluk.")
                         print("")
                         while True:
                             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -647,10 +647,9 @@ while True:
                                 print("Zkus to znovu.")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
                         print("")
             elif otaz == "ne":
-                print("")
                 print("Odstoupíš od generátoru.")
                 print("")
                 while True:
@@ -663,10 +662,10 @@ while True:
                     if pokracovani.strip() != "":
                         print("Zkus to znovu.")
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
                 print("")
         if "fuse" in generator_observatory:
-            otaz = str(input("Chceš pojistku umístiť jinam? [ano, ne]: "))
+            otaz = str(input("Chceš pojistku umístit jinam? [ano, ne]: "))
             print("")
             if otaz == "ano":
                 print("Přijdeš k desce a vytáhneš dříve umístěnou pojistku.")
@@ -677,7 +676,7 @@ while True:
                     print("")
                     if gens == 1:
                         generator_warehouse.append("fuse")
-                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u SKLADY. Následně uslyšíš, jak některé generátory začly dělat hluk.")
                         print("")
                         while True:
                             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -691,7 +690,7 @@ while True:
                         break
                     elif gens == 2:
                         generator_observatory.append("fuse")
-                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš jak některé generátory začly dělat hluk.")
+                        print("Vložíš pojistku do otvoru. Rozsvítí se kontrolní dioda u OBSERVATOŘ. Následně uslyšíš, jak některé generátory začly dělat hluk.")
                         print("")
                         while True:
                             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -704,10 +703,9 @@ while True:
                                 print("Zkus to znovu.")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
                         print("")
             elif otaz == "ne":
-                print("")
                 print("Odstoupíš od generátoru.")
                 print("")
                 while True:
@@ -720,7 +718,7 @@ while True:
                     if pokracovani.strip() != "":
                         print("Zkus to znovu.")
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - SKLADY, 2 - OBSERVATOŘ].")
                 print("")
         
     
@@ -729,10 +727,18 @@ while True:
         print("Párkrát obervatoř obejdeš, jelikož hledáš vchod. Jenže ho nemůžeš najít.")
         print("Po bližsím zkoumaní ho konečně najdeš. Je tu ale problém. Je zarostlý nějakou ostnatou kapradinou. Nikdy si ji neviděl, asi pochází z tohoto ostrova.")
         print("")
-        print("Teď by se hodila pochodeň.")
-        print("")
+        while True:
+            pokracovani = input("Stiskni Enter pro pokračování: ")
+            if pokracovani.strip() == "":
+                location.remove("observatory")
+                location.append("observatory_vines")
+                print("")
+                break
+            if pokracovani.strip() != "":
+                print("Zkus to znovu.")
+    if "observatory_vines" in location:
         if "torch" in inventory:
-            print("Naštěstí už pochodeň máš. Silně ji vezmeš do ruk a přiložíš ke kapradině.")
+            print("Naštěstí máš ale pochodeň. Silně ji vezmeš do ruk a přiložíš ke kapradině.")
             print("Kapradina ihned vzplane. Po pár minutách po kapradině zbyl jen popel a vchod se uvolnil.")
             observatory_door.append("cleared")
             print("")
@@ -740,25 +746,25 @@ while True:
                 tela = str(input("Chceš jít dovnitř observatoře? [ano, ne]: "))
                 print("")
                 if tela == "ano":
-                    location.remove("observatory")
+                    location.remove("observatory_vines")
                     location.append("observatory_inside")
                     break
                 if tela == "ne":
                     print("Slezeš kopec zpátky dolů.")
                     print("")
-                    location.remove("observatory")
+                    location.remove("observatory_vines")
                     location.append("meeting_point_B")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                     print("")
         elif "torch" not in inventory:
-            print("Bohužel si pochodeň ještě nenašel. Slezeš kopec zpátky dolů a plánuješ jít jinam, dokud ji nedajdeš.")
+            print("Bohužel nemáš čím se zbavit kapradin. Slezeš kopec zpátky dolů.")
             print("")
             while True:
                 pokracovani = input("Stiskni Enter pro pokračování: ")
                 if pokracovani.strip() == "":
-                    location.remove("observatory")
+                    location.remove("observatory_vines")
                     location.append("meeting_point_B")
                     print("")
                     break
@@ -781,12 +787,12 @@ while True:
                 location.append("meeting_point_B")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "observatory_inside" in location:
         print("Vejdeš do observatoře. Většina zdí i uvnitř je porostlá divnou kapradinou. Už ale neblokuje tvou cestu.")
-        print("Na levo si všimneš žebříku. Vylezeš po něm, pak následuje pár schodů a dorazil si na to co vypadá jako hlavní podlaží.")
-        print("Když se porozhlédneš uvidíš pár stolů s počítači. Které vypadají stále funkčně.")
+        print("Nalevo si všimneš žebříku. Vylezeš po něm, pak následuje pár schodů a dorazil si na to, co vypadá jako hlavní podlaží.")
+        print("Když se porozhlédneš, uvidíš pár stolů s počítači. Které vypadají stále funkčně.")
         print("")
         while True:
             tela = str(input("Chceš počítače prozkoumat víc? [ano, ne]: "))
@@ -796,13 +802,13 @@ while True:
                 location.append("observatory_computers")
                 break
             if tela == "ne":
-                print("Vyjdeš z obervatoře a slezeš kopec zpátky dolů.")
+                print("Vyjdeš z observatoře a slezeš kopec zpátky dolů.")
                 print("")
                 location.remove("observatory_inside")
                 location.append("meeting_point_B")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [ano, ne].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [ano, ne].")
                 print("")
     if "observatory_computers" in location and "fuse" in generator_observatory:
         print("Zkusíš počítač zapnout. Po pár sekundách se počítač začne načítat.")
@@ -822,10 +828,10 @@ while True:
             if pokracovani.strip() != "":
                 print("Zkus to znovu.")
     if "observatory_computers" in location and "fuse" not in generator_observatory:
-        print("Zkusíš počítač zapnout. Po pár sekundách čekání ti dojde že se nic nestane.")
+        print("Zkusíš počítač zapnout. Po pár sekundách čekání ti dojde, že se nic nestane.")
         print("Blíže si prohlédneš počítač a zjistíš že mu chybí elektřina.")
         print("")
-        print("Bohužel tak vycházíš s prázdnou z observatoře a slézáš kopec zpátky dolů")
+        print("Bohužel tak vycházíš s prázdnou z observatoře a slézáš kopec zpátky dolů.")
         print("")
         while True:
             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -841,7 +847,7 @@ while True:
         print("[ZÁZNAM ZE DNE 17.1#.2### 06:19]: Za tři hodiny přijede velení. Chtějí také vidět finální testy.")
         print("[ZÁZNAM ZE DNE 17.1#.2### 09:38]: Za dvacet minut začnou finální testy. Většina lidí ze všech oddělení už je na místě a netrpělivé čeká.")
         print("[ZÁZNAM ZE DNE 17.1#.2### 10:21]: Něco se děje. Anomálie po celých pěti letech není v klidovém stavu. Možná se nám to podaří!")
-        print("[ZÁZNAM ZE DNE 17.1#.2### 10:33]: ZADRŽOVACÍ PROSTOR BYL PROLOMEN *intenzivní střelba* *hlasitý křik* ZADRŽOVACÍ PROSTOR BYL PROLOMEN *sirény* ZADRŽOVACÍ PROSTO#.##..")
+        print("[ZÁZNAM ZE DNE 17.1#.2### 10:33]: IZOLAČNÍ PROSTOR BYL PROLOMEN *intenzivní střelba* *hlasitý křik* IZOLAČNÍ PROSTOR BYL PROLOMEN *sirény* IZOLAČNÍ PROSTO#.##..")
         print("")
         print("V tichu tam dalších pět minut sedíš na židli před počítačem a srovnáváš si myšlenky. Na další soubory už se radši podívat nechceš.")
         print("")
@@ -855,8 +861,8 @@ while True:
             if pokracovani.strip() != "":
                 print("Zkus to znovu.")
     if "observatory_drawer" in location:
-        print("Zkusíš aspoň ještě otevřít šuplíky u stolu u kterého sedíš.")
-        print("Po otevření šuplíku si...")
+        print("Zkusíš aspoň ještě otevřít šuplíky u stolu, u kterého sedíš.")
+        print("Po otevření šuplíku jsi...")
         if "night_vision" in observatory_loot:
             print("Našel brýle nočního vidění. Schováš si je k sobě pro další využití.")
             observatory_loot.remove("night_vision")
@@ -890,7 +896,7 @@ while True:
     
 
     if "stone_circle" in location and "night_vision" not in inventory:
-        print("Vydáš se do lesa. Po pár minutách chůze si začneš všímat že les je celkem hustý a že moc slunečního svitu neproniká skrze stromy. Je tu celkem tmavo.")
+        print("Vydáš se do lesa. Po pár minutách chůze si začneš všímat, že les je celkem hustý a že moc slunečního svitu neproniká skrze stromy. Je tu celkem tmavo.")
         print("Je to ale zvládnutelné, takže se vydáváš dál.")
         print("")
         while True:
@@ -903,7 +909,7 @@ while True:
             if pokracovani.strip() != "":
                 print("Zkus to znovu.")
     if "stone_circle" in location and "night_vision" in inventory:
-        print("Vydáš se do lesa. Po pár minutách chůze si začneš všímat že les je celkem hustý a že moc slunečního svitu neproniká skrze stromy. Je tu celkem tmavo.")
+        print("Vydáš se do lesa. Po pár minutách chůze si začneš všímat, že les je celkem hustý a že moc slunečního svitu neproniká skrze stromy. Je tu celkem tmavo.")
         print("Zapneš tedy své brýle nočního vidění.")
         print("")
         while True:
@@ -917,7 +923,7 @@ while True:
                 print("Zkus to znovu.")
     if "stone_circle_secret" in location:
         print("Najednou se tvoje vidění zbarví do zelena. I tak ale vidíš lépe než předtím.")
-        print("Po chvíli chůze si všimneš něčeho ve stromě. Po přiblížení si...")
+        print("Po chvíli chůze si všimneš něčeho ve stromě. Po přiblížení jsi...")
         if "revolver" in stone_circle_secret_loot:
             print("Našel revolver. Schováš si ho k sobě pro další využití.")
             stone_circle_secret_loot.remove("revolver")
@@ -945,7 +951,7 @@ while True:
                 if pokracovani.strip() != "":
                     print("Zkus to znovu.")    
     if "stone_circle_second" in location:
-        print("po chvíli chůze si všimneš v dálce nějakých velkých kamenů.")
+        print("Po chvíli chůze si všimneš v dálce nějakých velkých kamenů.")
         print("")
         while True:
             tela = str(input("Chceš kameny prozkoumat více? [ano, ne]: "))
@@ -971,12 +977,12 @@ while True:
                         location.append("fishing_hut")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
                         print("")
                 break
     if "stone_circle_close" in location:
-        print("Začneš se přibližovat k záhadným kamenům. Kameny vypadají že jsou ve tvaru kruhu. Odhaduješ jejich výšku asi na tři metry.")
-        print("Radši nezkoumáš jejich využití. Začneš se dívat kolem nich jestli nenajdeš něco užitečného.")
+        print("Začneš se přibližovat k záhadným kamenům. Kameny vypadají, že jsou ve tvaru kruhu. Odhaduješ jejich výšku asi na tři metry.")
+        print("Radši nezkoumáš jejich využití. Začneš se dívat kolem nich, jestli nenajdeš něco užitečného.")
         print("")
         while True:
             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -988,7 +994,7 @@ while True:
             if pokracovani.strip() != "":
                 print("Zkus to znovu.")
     if "stone_circle_final" in location:
-        print("Začneš obcházet kameny. Něco zahlédneš u čtvrtého kamenu. Po bližsím proukoumání si...")
+        print("Začneš obcházet kameny. Něco zahlédneš u čtvrtého kamenu. Po bližsím proukoumání jsi...")
         if "torch" in stone_circle_loot and "torch" not in inventory:
             print("Našel pochodeň. Schováš si ji k sobě pro další využití.")
             stone_circle_loot.remove("torch")
@@ -1010,7 +1016,7 @@ while True:
                     location.append("fishing_hut")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
                     print("")
         elif "torch" not in stone_circle_loot:
             print("Bohužel nic nenašel.")
@@ -1031,7 +1037,7 @@ while True:
                     location.append("fishing_hut")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
                     print("")
         elif "torch" in stone_circle_loot and "torch" in inventory:
             print("Našel pochodeň. Jelikož už ale jednu máš, tak ti přijde nepotřebné mít dvě. Necháš ji u kamene kde si ji našel.")
@@ -1051,15 +1057,15 @@ while True:
                     location.append("fishing_hut")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - rybářská chatka].")
                     print("")
 
     
     if "fishing_hut" in location:
         print("Po chvíli chůze vidíš obrovské jezero. Voda čirá jako křišťál a na jejím břehu malé molo s chatkou. Uvnitř zahlédneš rybářské náčiní.")
-        print("po své pravici zahlédneš něco žlutého, za velkým kovovým plotem. Vypadá to jako nějaký generátor.")
-        print("Za zmíněným generátorem zahlédneš na kopci budovu s kopulitou střechou. Pak si všimneš velkého teleskopu a dojde ti že je to observatoř.")
-        print("Na levo na hoře nad jezerem si všimneš nějaké dřevěnné hlídací věže. A za tebou velkého lesa, co se na ostrově nachází.")
+        print("Po své pravici zahlédneš něco žlutého, za velkým kovovým plotem. Vypadá to, jako nějaký generátor.")
+        print("Za zmíněným generátorem zahlédneš na kopci budovu s kopulitou střechou. Pak si všimneš velkého teleskopu a dojde ti, že je to observatoř.")
+        print("Nalevo nahoře nad jezerem si všimneš nějaké dřevěné hlídací věže. A za tebou velkého lesa, co se na ostrově nachází.")
         print("")
         while True:
             rozhodnuti = int(input("Kam se chceš vydat? [1 - dovnitř rybářské chatky, 2 - ke generátorům, 3 - hlídací věž, 4 - do lesa]: "))
@@ -1084,7 +1090,7 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - dovnitř rybářské chatky, 2 - ke generátorům, 3 - hlídací věž, 4 - do lesa].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - dovnitř rybářské chatky, 2 - ke generátorům, 3 - hlídací věž, 4 - do lesa].")
                 print("")
     if "fishing_hut_inside" in location and "fishing_rod" in fishing_hut_loot:
         print("Vejdeš do rybářské chatky. Na zdech uvidíš různé rybářské náčiní. Pak uvidíš vzadu funkčně vypadající rybářský prut.")
@@ -1117,7 +1123,7 @@ while True:
                         print("")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
                         print("")
                 break
     if "fishing_hut_inside" in location and "fishing_rod" not in fishing_hut_loot:
@@ -1142,21 +1148,21 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
                 print("")
     if "fishing_hut_pier" in location:
         print("Uchopíš rybářský prut do svých rukou a vydáš se na molo vedle chatky.")
         print("Nahodíš návnadu do vody a čekáš. Po chvíli se něco začne dít. Silně chytíš prut a začneš tahat. Podařilo se...")
         if "ammo_crate" in fishing_loot:
-            print("Vylovit bednu s municí. Schováš si je k sobě pro další využití.")
+            print("Vylovit bednu s municí. Schováš si ji k sobě pro další využití.")
             print("Prut bohužel následně praskl a stal se nepoužitelným.")
             fishing_loot.remove("ammo_crate")
             inventory.append("ammo_crate")
             print("")
-            print("Po-té vyjdeš z chatky.")
+            print("Po-té odejdeš z mola.")
             print("")
             while True:
-                nevim = int(input("Tak vyjdeš z chatky. Kam se chceš vydat teď? [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa]: "))
+                nevim = int(input("Kam se chceš vydat teď? [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa]: "))
                 print("")
                 if nevim == 1:
                     location.remove("fishing_hut_pier")
@@ -1174,16 +1180,16 @@ while True:
                     print("")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
                     print("")
         elif "ammo_crate" not in fishing_loot:
             print("Vylovit bohužel nic.")
             print("Prut bohužel následně praskl a stal se nepoužitelným.")
             print("")
-            print("Po-té vyjdeš z chatky.")
+            print("Po-té odejdeš z mola.")
             print("")
             while True:
-                nevim = int(input("Tak vyjdeš z chatky. Kam se chceš vydat teď? [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa]: "))
+                nevim = int(input("Kam se chceš vydat teď? [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa]: "))
                 print("")
                 if nevim == 1:
                     location.remove("fishing_hut_pier")
@@ -1201,15 +1207,15 @@ while True:
                     print("")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - ke generátorům, 2 - hlídací věž, 3 - do lesa].")
                     print("")
 
 
     if "lighthouse" in location:
-        print("Vydáš se k majáku. Než se k němu přiblížíš tak už obdivuješ útes na kterém je a jak pod ním zuří vlny moře.")
-        print("Jakmile dojdeš k majáku tak se podíváš nahoru, jak vysoký vlastně je.")
+        print("Vydáš se k majáku. Než se k němu přiblížíš, tak už obdivuješ útes, na kterém je a jak pod ním zuří vlny moře.")
+        print("Jakmile dojdeš k majáku, tak se podíváš nahoru, jak vysoký vlastně je.")
         print("Podíváš se kolem a v dáli na pravo zahlédneš jakousi dřevěnou hlídací věž a za ní dvě nerozpoznatelné budovy.")
-        print("Jde také vidět vrak lodi, u kterého si začal. Když se díváš do dáli podél útesu, pod kterým je moře.")
+        print("Jde také vidět vrak lodi, u kterého všechno začalo. Když se díváš do dáli podél útesu, pod kterým je moře.")
         print("")
         while True:
             tela = str(input("Chceš vylézt nahoru majáku? [ano, ne]: "))
@@ -1236,7 +1242,7 @@ while True:
                             location.append("plane")
                             break
                         else:
-                            print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo].")
+                            print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo].")
                             print("")
                     break
                 if "check" not in lighthouse_visit:
@@ -1252,18 +1258,18 @@ while True:
                             location.append("watch_tower")
                             break
                         else:
-                            print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž].")
+                            print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž].")
                             print("")
                     break
     if "lighthouse_top" in location:
-        print("Vkročíš dovnitř majáku. Pohlédneš nahoru a uvidíš desítky schodů a dojde ti do čeho ses to vlastně dostal.")
-        print("Po ani nevíš kolika schodech a jednom finálním žebříku ses konečně vyhrabal nahoru.")
+        print("Vkročíš dovnitř majáku. Pohlédneš nahoru a uvidíš desítky schodů a dojde ti, do čeho ses to vlastně dostal.")
+        print("Po ani nevíš kolika schodech a jednom finálním žebříku, ses konečně vyhrabal nahoru.")
         print("Rozehlédneš se po ostrově a začneš obdivovat výhlet. Pak si ale nalevo něčeho všimneš.")
-        print("Kromě hlídací věže a dvou budov zahlédneš něco co vypadá jako letadlo. Na útesu dál za majákem")
-        print("Možná to bude moje cesta ven, pomyslíš si...")
+        print("Kromě hlídací věže a dvou budov, zahlédneš něco co vypadá jako letadlo. Na útesu dál za majákem")
+        print("Možná to bude moje cesta ven, pomyslíš si.")
         print("")
         lighthouse_visit.append("check")
-        print("Následné slezeš dolů a začneš přemýšlět kam dál jít.")
+        print("Následně slezeš dolů a začneš přemýšlět kam dál jít.")
         print("")
         while True:
             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -1291,15 +1297,15 @@ while True:
                 location.append("plane")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - vrak lodi, 2 - hlídací věž, 3 - letadlo].")
                 print("")
 
 
     if "watch_tower" in location:
-        print("Jak k ní jdeš tak ji vidíš už zdálky. Jak tato hlídací věž majestátně stojí na útesu nad jezerem.")
-        print("Když k ní dojdeš tak konečně poznáš co jsou celou dobu ty dvě budovi za ní. Jsou to sklady.")
-        print("Když se díváš podél jezera tak uvidíš jakousi chatku s malým molem.")
-        print("Za jezerem také spatříš nějaký žlutý stroj za kovovým plotem. Nad ním na kopci uvidíš nějakou budovu s kopulitou střechou.")
+        print("Jak k ní jdešj tak to vidíš už zdálky. Jak tato hlídací věž majestátně stojí na útesu nad jezerem.")
+        print("Když k ní dojdeš, tak konečně poznáš, co jsou celou dobu ty dvě budovi za ní. Jsou to sklady.")
+        print("Když se díváš podél jezera, tak uvidíš jakousi chatku s malým molem.")
+        print("Za jezerem také spatříš nějaký žlutý přístroj za kovovým plotem. Nad ním na kopci uvidíš nějakou budovu s kopulitou střechou.")
         print("")
         while True:
             tela = str(input("Chceš vylézt nahoru na věž? [ano, ne]: "))
@@ -1325,11 +1331,11 @@ while True:
                         location.append("lighthouse")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
                         print("")
                 break
     if "watch_tower_top" in location:
-        print("Začneš lézt po žebříku nahoru na věž. Jakmile vylezeš nahoru tak zrychleně obejdeš horní plošinu.")
+        print("Začneš lézt po žebříku nahoru na věž. Jakmile vylezeš nahoru, tak zrychleně obejdeš horní plošinu.")
         print("Chytneš se zábradlí a rozhlédneš se. Nejvíc tě zaujme křišťálově čisté jezero. Po chvíli koukání se otočíš a vkročíš dovnitř budky, co se na plošině nachází.")
         print("")
         while True:
@@ -1375,7 +1381,7 @@ while True:
                             print("")
                             break
                         else:
-                            print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
+                            print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
                             print("")
                     break
         elif "radio" not in watch_tower_loot:
@@ -1400,13 +1406,13 @@ while True:
                     print("")
                     break
                 else:
-                    print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
+                    print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
                     print("")
     if "watch_tower_radio" in location:
-        print("Vezmeš vysílačku do ruky a zmáčkneš tlačítko na boku co vypadá jako tlačítko pro zapnutí.")
+        print("Vezmeš vysílačku do ruky a zmáčkneš tlačítko na boku, co vypadá jako tlačítko pro zapnutí.")
         print("Místnost zaplní šumivý zvuk z vysílačky. Po pár sekundách se rozhodneš promluvit. Zeptáš se, „Haló..?“")
         print("Po minutě, dvě to vzdáš a chystáš se odejít, když tu najednou uslyšíš: „Pomoc... u.. věže....“")
-        print("Instantně začneš křičet do vysílačky co se děje nebo kde přesněji je, že by si mohl být blízko. Z vysílačky už ale zase vychází jen šumivý zvuk.")
+        print("Ihned začneš křičet do vysílačky co se děje nebo kde přesněji je, že by si mohl být blízko. Z vysílačky už, ale zase vychází jen šumivý zvuk.")
         print("Vysílačku schováš k sobě, kdyby se ještě něco ozvalo..")
         print("")
         print("Po-té slezeš z věže a plánuješ kam jít dál.")
@@ -1440,12 +1446,12 @@ while True:
                 print("")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - sklady, 2 - rybářská chatka, 3 - maják].")
                 print("")
 
     
     if "warehouses" in location:
-        print("Konečně dorážíš ke skladům, které si pořád vídával z různých lokací. Všimneš si že sklad na pravo je oplocený a je před ním brána. Levý je ale otevřený.")
+        print("Konečně dorážíš ke skladům, které si pořád vídával z různých lokací. Všimneš si, že sklad na pravo je oplocený a je před ním brána. Levý vypadá přístupně.")
         print("")
         while True:
             tela = str(input("Chceš je prozkoumat? [ano, ne]: "))
@@ -1463,7 +1469,7 @@ while True:
                         location.append("watch_tower")
                         break
                     elif nevim != 1:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - hlídací věž].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - hlídací věž].")
                         print("")
                 break
     if "warehouses_second" in location:
@@ -1479,10 +1485,10 @@ while True:
                 location.append("warehouses_right")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - levý sklad, 2 - pravý sklad].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - levý sklad, 2 - pravý sklad].")
                 print("")
     if "warehouses_left" in location:
-        print("Projdeš dírou ve zdi dovnitř skladu. Polovina střechy už je na kusy, kde některými prorůstá i mech a další rostliny. Ukazuje to, jak dlouho už tu nikdo nebyl.")
+        print("Projdeš dírou ve zdi dovnitř skladu. Polovina střechy už je na kusy, kde některými prorůstá i mech a další rostliny. Ukazuje to, jak dlouho, už tu nikdo nebyl.")
         print("Procházíš se ve skladu a hledáš cokoli užitečného. Pak si všimneš něčoho opřeného o jeden ze sloupů. Po přiblížení si...")
         print("")
         if "plane_propeller" in warehouses_loot_left:
@@ -1517,11 +1523,11 @@ while True:
                     print("Zkus to znovu.")
     if "warehouses_right" in location:
         if "fuse" in generator_warehouse:
-            print("Přijdeš k bráně. Než se jí vůbec dotkneš, aby si ji zkusil otevřít sílou, tak se otevře sama.")
+            print("Přijdeš k bráně. Než se jí vůbec dotkneš, aby si ji zkusil otevřít silou, tak se otevře sama.")
             print("Vkročíš dovnitř. Začneš se dívat po všem užitečném. Po chvíli prohledávání se ti podařilo...")
             print("")
             if "plane_steering_wheel" in warehouses_loot_right and "plane_wheel" in warehouses_loot_right:
-                print("Najít řídící kolo od letadla a kolo od letadla. Svou kořist si schováš k sobě pro další využití.")
+                print("Najít řídící páku a kolo od letadla. Svou kořist si schováš k sobě pro další využití.")
                 print("")
                 warehouses_loot_right.remove("plane_steering_wheel")
                 warehouses_loot_right.remove("plane_wheel")
@@ -1552,7 +1558,7 @@ while True:
             print("Přijdeš k bráně. Nic se neděje. Chytneš ji rukama a zabereš. Brána se ani nehne.")
             print("Plot je na přelezení moc vysoký, zkusíš tedy sklad obejít. Bohužel si nenašel žádný jiný vchod.")
             print("")
-            print("Odejdeš tedy od brány.")
+            print("Odejdeš tedy od skladu.")
             print("")
             while True:
                 pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -1564,11 +1570,11 @@ while True:
                 if pokracovani.strip() != "":
                     print("Zkus to znovu.")
     if "warehouses_right_second" in location:
-        print("Ještě ale něco zahlédneš v rohu na paletách. Po přiblížení si...")
+        print("Ještě ale něco zahlédneš v rohu na paletách. Po přiblížení jsi...")
         if "revolver" in warehouses_loot_right:
             print("Našel revolver. Schováš si ho k sobě pro další využití.")
             print("")
-            print("Následně si vyšel ze skladu.")
+            print("Následně jsi vyšel ze skladu.")
             print("")
             warehouses_loot_right.remove("revolver")
             inventory.append("revolver")
@@ -1584,7 +1590,7 @@ while True:
         elif "revolver" not in warehouses_loot_right:
             print("Bohužel nenašel nic.")
             print("")
-            print("Následně si vyšel ze skladu.")
+            print("Následně jsi vyšel ze skladu.")
             print("")
             while True:
                 pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -1608,14 +1614,14 @@ while True:
                 location.append("warehouses_second")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - hlídací věž, 2 - prozkoumávat dál].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - hlídací věž, 2 - prozkoumávat dál].")
                 print("")
 
     
     if "plane" in location:
-        print("Po pár minutách chůze ve směru dřívě spatřeného letadla z majáku, se k němu konečně dostavíš.")
-        print("Už od prvního pohledu si ale všimneš že letadlu chybí vrtule. Začneš se obávat že tvoje cesta domů se úplně nevyplní.")
-        print("Po bližším proukoumaní si zjistil že mu také chybí jedno z kol a samotné řídící kolo. Dojde ti že tímhle v tomhle stavu vážně neodletíš.")
+        print("Po pár minutách chůze, ve směru dřívě spatřeného letadla z majáku, se k němu konečně dostavíš.")
+        print("Už od prvního pohledu si ale všimneš, že letadlu chybí vrtule. Začneš se obávat, že tvoje cesta domů se úplně nevyplní.")
+        print("Po bližším proukoumaní si zjistil, že mu také chybí jedno z kol a samotná řídící páka. Dojde ti, že tímhle v tomhle stavu vážně neodletíš.")
         print("")
         while True:
             pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -1643,7 +1649,7 @@ while True:
                         location.append("plane_back")
                         break
                     else:
-                        print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - odletět, 2 - zůstat].")
+                        print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - odletět, 2 - zůstat].")
                         print("")
                 break
             elif "plane_propeller" in inventory:
@@ -1671,7 +1677,7 @@ while True:
                     if pokracovani.strip() != "":
                         print("Zkus to znovu.")
             elif "plane_steering_wheel" in inventory:
-                print("Připravíš si své dříve nalezené řídící kolo. Nasadíš ho na volné místo na místě pilota a upevníš.")
+                print("Připravíš si svou dříve nalezenou řídící páku. Nasadíš ji na volné místo na místě pilota a upevníš.")
                 print("")
                 inventory.remove("plane_steering_wheel")
                 plane_parts.append("plane_steering_wheel")
@@ -1697,7 +1703,7 @@ while True:
                             print("Zkus to znovu.")
                     break
                 if not plane_parts:
-                    print("Bohužel si zatím nenašel žádné součástky na opravu letadla. Rozhodneš se tedy vrátit a začít v hledání.")
+                    print("Bohužel jsi zatím nenašel žádné součástky na opravu letadla. Rozhodneš se tedy vrátit a začít v hledání.")
                     print("")
                     while True:
                         pokracovani = input("Stiskni Enter pro pokračování: ")
@@ -1718,14 +1724,14 @@ while True:
                 location.append("lighthouse")
                 break
             else:
-                print("Zadal si špatnou odpověď. Správné odpovědi jsou [1 - odletět, 2 - zůstat].")
+                print("Zadal jsi špatnou odpověď. Správné odpovědi jsou [1 - odletět, 2 - zůstat].")
                 print("")
 
 
     if "end" in location:
-        print("Nastartuješ motor. Motor začne silně hučet a vidíš jak se vrtule začne roztáčet. Jakmile usoudíš že vrtule se točí dostatečně rychle, stlačíš páku.")
+        print("Nastartuješ motor. Motor začne silně hučet a vidíš, jak se vrtule začne roztáčet. Jakmile usoudíš, že vrtule se točí dostatečně rychle, stlačíš páku.")
         print("Letadlo se začne rozjíždět. Začneš se ale rychle přibližovat ke konci útesu, kde letadlo stálo. Páku stlačíš silněji, co nejvíc co to jde.")
-        print("Těsně před koncem útesu cítíš jak tedla začne vzlétávat. „JO! Vyšlo to!“, zařveš ze svých plných plic.")
+        print("Těsně před koncem útesu cítíš, jak letadlo začne vzlétávat. „JO! Vyšlo to!“, zařveš ze svých plných plic.")
         print("Po-té už se jen spokojeně otočíš na ostrov s vítězným výrazem, od kterého se vzdaluješ jak letíš konečně pryč.")
         print("")
         while True:
@@ -1739,5 +1745,6 @@ while True:
                 print("Zkus to znovu.")
     if "credits" in location:
         print("Děkuji vám za dohrání mé hry. Doufám že jste si ji aspoň trochu užil, stejně jako já když jsem ji vytvářel.")
+        print("Taky doufám že tohle nečtete pouze v souboru na konci kódu, ale i v konzoli.")
         print("")
         break
