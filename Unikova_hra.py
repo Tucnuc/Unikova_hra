@@ -1,7 +1,7 @@
 import random
 
-location = ["start"] #shipwreck, stone_circle, fishing_hut, watch_tower, warehouses, lighthouse, plane, air_drop, villa_front, generators, obervatory, meeting_point_A, meeting_point_B, meeting_point_C
-inventory = [""] #night_vision, fishing_rod, fuse, plane_steering_wheel, plane_wheel, plane_propeller, revolver, double_barrel_shotgun, flashlight
+location = ["start"] #shipwreck, stone_circle, fishing_hut, watch_tower, warehouses, lighthouse, plane, air_drop, villa_front, generators, obervatory, meeting_point_A, meeting_point_B
+inventory = [""] #night_vision, fishing_rod, fuse, plane_steering_wheel, plane_wheel, plane_propeller, revolver, ammo_crate, flashlight
 
 night_rng = random.randint(0, 1)
 airdrop_rng = 2
@@ -1710,17 +1710,17 @@ while True:
             nevim = int(input("Slezeš dolů z věže. Kam se chceš vydat? [1 - sklady, 2 - rybářská chatka, 3 - maják]: "))
             print("")
             if nevim == 1:
-                location.remove("watch_tower_inside")
+                location.remove("night_after")
                 location.append("warehouses")
                 print("")
                 break
             elif nevim == 2:
-                location.remove("watch_tower_inside")
+                location.remove("night_after")
                 location.append("fishing_hut")
                 print("")
                 break
             elif nevim == 3:
-                location.remove("watch_tower_inside")
+                location.remove("night_after")
                 location.append("lighthouse")
                 print("")
                 break
